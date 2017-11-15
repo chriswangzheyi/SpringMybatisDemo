@@ -7,11 +7,13 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SpringMybatisDemo Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+	
 
 	<properties>
 		<java-version>1.7</java-version>
 		<org.springframework-version>4.1.6.RELEASE</org.springframework-version>
 		<junit-version>4.12</junit-version>
+		<jackson.version>2.7.3</jackson.version>
 	</properties>
 
 	<dependencies>
@@ -47,6 +49,11 @@
 			<version>${org.springframework-version}</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
 
 		<!-- mybatis相关 -->
 		<dependency>
@@ -76,15 +83,48 @@
 			<artifactId>druid</artifactId>
 			<version>1.1.5</version>
 		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.7.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.7.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+		<!-- 上传文件用 -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.1</version> <!-- makesure correct version here -->
+		</dependency>
+
+<!-- jackson版本 -->
 <dependency>
-    <groupId>org.aspectj</groupId>
-    <artifactId>aspectjrt</artifactId>
-    <version>1.7.3</version>    
+  <groupId>com.fasterxml.jackson.core</groupId>
+  <artifactId>jackson-core</artifactId>
+  <version>${jackson.version}</version>
 </dependency>
 <dependency>
-    <groupId>org.aspectj</groupId>
-    <artifactId>aspectjweaver</artifactId>
-    <version>1.7.3</version>
+  <groupId>com.fasterxml.jackson.core</groupId>
+  <artifactId>jackson-databind</artifactId>
+  <version>${jackson.version}</version>
+</dependency>
+<dependency>
+  <groupId>com.fasterxml.jackson.core</groupId>
+  <artifactId>jackson-annotations</artifactId>
+  <version>${jackson.version}</version>
 </dependency>
 
 	</dependencies>
@@ -100,8 +140,8 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-		
-			
+
+
 		</plugins>
 
 	</build>
