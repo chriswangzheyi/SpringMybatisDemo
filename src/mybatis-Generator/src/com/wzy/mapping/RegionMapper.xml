@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wzy.dao.RegionMapper" >
+  <resultMap id="BaseResultMap" type="com.wzy.model.Region" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="enCode" property="encode" jdbcType="VARCHAR" />
+    <result column="quanpin" property="quanpin" jdbcType="VARCHAR" />
+    <result column="pid" property="pid" jdbcType="BIGINT" />
+    <result column="regLevel" property="reglevel" jdbcType="TINYINT" />
+    <result column="isHot" property="ishot" jdbcType="TINYINT" />
+    <result column="xh" property="xh" jdbcType="INTEGER" />
+    <result column="isDelete" property="isdelete" jdbcType="TINYINT" />
+    <result column="createUser" property="createuser" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updateUser" property="updateuser" jdbcType="VARCHAR" />
+    <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, code, name, enCode, quanpin, pid, regLevel, isHot, xh, isDelete, createUser, 
+    createTime, updateUser, updateTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from ec_sys_region
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from ec_sys_region
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.wzy.model.Region" >
+    insert into ec_sys_region (id, code, name, 
+      enCode, quanpin, pid, 
+      regLevel, isHot, xh, 
+      isDelete, createUser, createTime, 
+      updateUser, updateTime)
+    values (#{id,jdbcType=BIGINT}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{encode,jdbcType=VARCHAR}, #{quanpin,jdbcType=VARCHAR}, #{pid,jdbcType=BIGINT}, 
+      #{reglevel,jdbcType=TINYINT}, #{ishot,jdbcType=TINYINT}, #{xh,jdbcType=INTEGER}, 
+      #{isdelete,jdbcType=TINYINT}, #{createuser,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{updateuser,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wzy.model.Region" >
+    insert into ec_sys_region
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="encode != null" >
+        enCode,
+      </if>
+      <if test="quanpin != null" >
+        quanpin,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="reglevel != null" >
+        regLevel,
+      </if>
+      <if test="ishot != null" >
+        isHot,
+      </if>
+      <if test="xh != null" >
+        xh,
+      </if>
+      <if test="isdelete != null" >
+        isDelete,
+      </if>
+      <if test="createuser != null" >
+        createUser,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="updateuser != null" >
+        updateUser,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="encode != null" >
+        #{encode,jdbcType=VARCHAR},
+      </if>
+      <if test="quanpin != null" >
+        #{quanpin,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=BIGINT},
+      </if>
+      <if test="reglevel != null" >
+        #{reglevel,jdbcType=TINYINT},
+      </if>
+      <if test="ishot != null" >
+        #{ishot,jdbcType=TINYINT},
+      </if>
+      <if test="xh != null" >
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="isdelete != null" >
+        #{isdelete,jdbcType=TINYINT},
+      </if>
+      <if test="createuser != null" >
+        #{createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateuser != null" >
+        #{updateuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wzy.model.Region" >
+    update ec_sys_region
+    <set >
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="encode != null" >
+        enCode = #{encode,jdbcType=VARCHAR},
+      </if>
+      <if test="quanpin != null" >
+        quanpin = #{quanpin,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=BIGINT},
+      </if>
+      <if test="reglevel != null" >
+        regLevel = #{reglevel,jdbcType=TINYINT},
+      </if>
+      <if test="ishot != null" >
+        isHot = #{ishot,jdbcType=TINYINT},
+      </if>
+      <if test="xh != null" >
+        xh = #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="isdelete != null" >
+        isDelete = #{isdelete,jdbcType=TINYINT},
+      </if>
+      <if test="createuser != null" >
+        createUser = #{createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateuser != null" >
+        updateUser = #{updateuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wzy.model.Region" >
+    update ec_sys_region
+    set code = #{code,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      enCode = #{encode,jdbcType=VARCHAR},
+      quanpin = #{quanpin,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=BIGINT},
+      regLevel = #{reglevel,jdbcType=TINYINT},
+      isHot = #{ishot,jdbcType=TINYINT},
+      xh = #{xh,jdbcType=INTEGER},
+      isDelete = #{isdelete,jdbcType=TINYINT},
+      createUser = #{createuser,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      updateUser = #{updateuser,jdbcType=VARCHAR},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
